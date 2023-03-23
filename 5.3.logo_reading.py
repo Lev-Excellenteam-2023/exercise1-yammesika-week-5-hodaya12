@@ -7,10 +7,11 @@ def get_file(filename,buffer_size=2**10*8):
             i = 0
             while i<len(chunk):
                 try:
-                    if(chunk.decode(encoding="utf8", errors='ignore')[i]>='a' and chunk.decode(encoding="utf8", errors='ignore')[i]<='z'):
-                        x=x+chunk.decode(encoding="utf8", errors='ignore')[i]
-                    elif chunk.decode(encoding="utf8", errors='ignore')[i]=='!':
-                        x = x + chunk.decode(encoding="utf8", errors='ignore')[i]
+                    it1=chunk.decode(encoding="utf8", errors='ignore')[i]
+                    if(it1>='a' and it1<='z'):
+                        x=x+it1
+                    elif it1=='!':
+                        x = x + it1
                         if(len(x))>=5:
                             yield x
                             x=''
